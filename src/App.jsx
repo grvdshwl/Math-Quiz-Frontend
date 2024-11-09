@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Signup from "./Component/SignUp";
-import Login from "./Component/LogIn";
+import Signup from "./component/SignUp";
+import Login from "./component/LogIn";
 import Gameplay from "./component/Gameplay";
 import { useUser } from "./context/authProvider.context";
 import PropTypes from "prop-types";
