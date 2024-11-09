@@ -4,7 +4,7 @@ import { EmailStep, PasswordStep, ProfileStep } from "../ReuseableComponents";
 import "react-toastify/dist/ReactToastify.css";
 import { useUser } from "../../context/authProvider.context";
 import { config } from "../../../config";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const { signupUser } = useUser();
@@ -12,6 +12,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,7 +21,7 @@ const Signup = () => {
 
   const validatePassword = (password) => password.length >= 6;
 
-  const validateName = (name) => name.trim().length > 0;
+  const validateName = (name) => name.trim().length > 1;
 
   const nextStep = () => {
     if (step === 1 && !validateEmail(email)) {
@@ -40,7 +41,7 @@ const Signup = () => {
 
   const handleSubmit = () => {
     if (!validateName(name)) {
-      toast.error("Please enter your name.");
+      toast.error("Please enter your  name.");
       return;
     }
     fetch(`${config.API_BASE_URL}/signup`, {
@@ -54,7 +55,9 @@ const Signup = () => {
       .then((data) => {
         if (data.success) {
           toast.success("Signup complete! Welcome, " + name + "!");
+          console.log(data, "ata 1");
           signupUser(data.user);
+          navigate("/");
         } else {
           toast.error("Signup failed. Please try again.");
         }

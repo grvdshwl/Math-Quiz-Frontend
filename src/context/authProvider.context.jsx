@@ -21,6 +21,7 @@ export const UserProvider = ({ children }) => {
   };
 
   const signupUser = (data) => {
+    console.log(data);
     setUserDetails(data);
     setIsAuthenticated(true);
   };

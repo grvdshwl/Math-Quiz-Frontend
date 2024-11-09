@@ -131,7 +131,7 @@ const Gameplay = () => {
           </div>
         </div>
       )}
-      <h2>User Score: {userDetails.score}</h2>
+      <h2>User Score: {userDetails?.score || 0}</h2>
       <button onClick={logoutUser} className="logout-button">
         Logout
       </button>

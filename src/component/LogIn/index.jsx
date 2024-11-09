@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { EmailStep, PasswordStep } from "../ReuseableComponents";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,6 +13,7 @@ const Login = () => {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const nextStep = () => {
     if (step === 1 && !validateEmail(email)) {
@@ -43,6 +44,7 @@ const Login = () => {
         if (data.success) {
           toast.success("Welcome " + data.user.name);
           loginUser(data.user);
+          navigate("/");
         } else {
           toast.error("Login failed. Please try again.");
         }
