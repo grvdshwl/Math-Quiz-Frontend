@@ -1,0 +1,57 @@
+.gameplay {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.game {
+  margin-top: 20px;
+}
+
+.question-display {
+  margin: 20px;
+}
+
+input {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.timer {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.leaderboard {
+  margin-top: 30px;
+}
+
+.leaderboard ul {
+  list-style-type: none;
+}
+
+.winner-announcement {
+  margin-top: 20px;
+  font-size: 24px;
+  color: green;
+}
+
+.submit-cta {
+  margin-left: 12px;
+}
+
+.question-text {
+  font-size: 20px;
+}
