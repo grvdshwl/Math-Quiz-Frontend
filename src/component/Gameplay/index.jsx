@@ -45,7 +45,7 @@ const Gameplay = () => {
         `${config.API_BASE_URL}/checkIsQuestionAnswered/${currentQuestion._id}`
       );
       const data = await response.json();
-      data.success && fetchQuestions();
+      data.success && fetchQuestions() && setUserAnswer("");
     } catch (error) {
       console.error("Error checking question answered:", error);
     }
@@ -132,6 +132,8 @@ const Gameplay = () => {
         </div>
       )}
       <h2>User Score: {userDetails?.score || 0}</h2>
+      <h2>Welcome {userDetails.name}</h2>
+
       <button onClick={logoutUser} className="logout-button">
         Logout
       </button>
