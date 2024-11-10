@@ -1,7 +1,5 @@
-// Problem: Design a system to manage user attempts at answering questions,
+// Problem: Solution to manage user attempts at answering questions,
 // ensuring only one process handles attempts for a specific question at any time.
-
-// Solution Outline:
 
 // Step 1: Enqueue the user's attempt (userId, questionId, and answer) in a Redis list.
 
